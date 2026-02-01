@@ -70,7 +70,7 @@
       </div>
 
       <!-- Main Container // question -->
-      <div class="mainQuestionContainer">
+      <div class="mainQuestionContainer" hidden>
         <!-- Question Container -->
         <div class="questionContainer flex flex-col gap-6 md:gap-8">
           <!-- Question Text Container -->
@@ -111,25 +111,38 @@
             </div>
             <span class="text-preset-4"></span>
           </div>
-
           <button class="bg-purple-600 flex justify-center items-center p-4 h-14 rounded-xl md:rounded-3xl">
             <span class="text-preset-4">Submit answer</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Container // Quiz completed score -->
+      <div class="flex flex-col gap-10 px-6 pt-8 pb-0">
+        <div class="flex flex-col">
+          <span class="text-preset-2-light mb-2">Quiz completed</span>
+          <span class="text-preset-2-medium"> You scored...</span>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col justify-center items-center gap-4 p-8 bg-blue-850 rounded-xl">
+            <div class="subjectList justify-center">
+              <img class="" src="" alt="" />
+              <span class="min-w-27.75 min-h-4.5"></span>
+            </div>
+
+            <div class="flex flex-col justify-center items-center gap-4 w-[263px] h-[122px]">
+              <span class="text-preset-1">8</span>
+
+              <span class="text-preset-6">out of 10</span>
+            </div>
+          </div>
+
+          <button class="bg-purple-600 flex justify-center items-center p-4 h-14 rounded-xl md:rounded-3xl">
+            <span class="text-preset-4">Play again</span>
           </button>
         </div>
       </div>
     </main>
   </body>
 </html>
-
-<h1 hidden>
-  <!-- Quiz question end -->
-
-  <!-- Quiz completed start -->
-
-  Quiz completed You scored...
-
-  <!-- score -->
-  out of 10
-
-  <!-- Quiz completed end -->
-</h1>

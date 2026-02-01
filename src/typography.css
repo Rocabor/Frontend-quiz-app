@@ -18,9 +18,9 @@
   --font-rubiki: "Rubiki", sans-serif;
 }
 
-/* @utility text-preset-1 {
+@utility text-preset-1 {
   @apply font-rubik text-[88px] md:text-[144px] font-medium leading-none;
-} */
+}
 
 @utility text-preset-2-medium {
   @apply font-rubik text-[40px] md:text-[64px] font-medium leading-none;
@@ -50,6 +50,6 @@
   @apply font-rubiki text-[14px] md:text-[20px] font-normal italic leading-normal text-blue-300;
 }
 
-/* @utility text-preset-6 {
-  @apply font-rubik text-[14px] md:text-[20px] font-normal leading-normal;
-} */
+@utility text-preset-6 {
+  @apply font-rubik text-[18px] md:text-[24px] font-normal leading-normal text-blue-300;
+}
