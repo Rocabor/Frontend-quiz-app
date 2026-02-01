@@ -13,7 +13,7 @@
     <title>Frontend Mentor | Frontend quiz app</title>
   </head>
   <body class="bg-blue-900 flex flex-col items-center justify-center min-h-screen">
-    <main class="startMenu bg-pattern">
+    <main class="startMenu bg-pattern" role="main">
       <header class="mainContent">
         <!-- Subject List -->
         <div class="subjectList">
@@ -22,127 +22,145 @@
         </div>
         <!-- Toggle Container -->
         <div class="toggleContainer">
-          <img class="size-4 md:size-6" src="assets/images/icon-sun-light.svg" alt="" />
-          <label class="w-8 h-5 md:w-12 md:h-7 rounded-full bg-purple-600 px-1 py-1" for="">
-            <input class="sr-only" type="checkbox" />
+          <img class="size-4 md:size-6" src="assets/images/icon-sun-light.svg" alt="Modo claro" />
+          <label class="w-8 h-5 md:w-12 md:h-7 rounded-full bg-purple-600 px-1 py-1" for="themeToggle">
+            <input id="themeToggle" class="sr-only" type="checkbox" role="switch" aria-label="Cambiar tema claro/oscuro" />
             <span class="absolute translate-x-3 md:translate-x-5 size-3 md:size-5 rounded-full bg-white"></span>
           </label>
-          <img class="size-4 md:size-6" src="assets/images/icon-moon-light.svg" alt="" />
+          <img class="size-4 md:size-6" src="assets/images/icon-moon-light.svg" alt="Modo oscuro" />
         </div>
       </header>
+      
       <!-- Main Container // start menu -->
-      <div class="mainContainer" hidden>
+      <section class="mainContainer" id="startMenu" aria-labelledby="welcomeHeading" >
         <!-- Header Container -->
         <div class="headerContainer">
-          <h1 class="text-preset-2-medium">
+          <h1 id="welcomeHeading" class="text-preset-2-medium">
             <span class="block mb-2 text-preset-2-light">Welcome to the</span> Frontend Quiz!
           </h1>
           <p class="text-preset-5-italic">Pick a subject to get started.</p>
         </div>
         <!-- Subjects Container -->
-        <div class="subjectsContainer gap-4 md:gap-6 xl:gap-4">
+        <nav class="subjectsContainer gap-4 md:gap-6 xl:gap-4" aria-label="Selección de temas">
           <!-- Subject Item -->
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
+          <button class="subjectItem flex items-center rounded-xl md:rounded-3xl" aria-label="Seleccionar HTML quiz">
             <div class="flex justify-center items-center size-10 md:size-14 bg-orange-50 rounded-lg">
-              <img class="size-[28.57px] md:size-10" src="assets/images/icon-html.svg" alt="" />
+              <img class="size-[28.57px] md:size-10" src="assets/images/icon-html.svg" alt="Ícono HTML" />
             </div>
             <span class="text-preset-4">HTML</span>
-          </div>
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
+          </button>
+          <button class="subjectItem flex items-center rounded-xl md:rounded-3xl" aria-label="Seleccionar CSS quiz">
             <div class="flex justify-center items-center size-10 md:size-14 bg-green-100 rounded-lg">
-              <img class="size-[28.57px] md:size-10" src="assets/images/icon-css.svg" alt="" />
+              <img class="size-[28.57px] md:size-10" src="assets/images/icon-css.svg" alt="Ícono CSS" />
             </div>
             <span class="text-preset-4">CSS</span>
-          </div>
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
+          </button>
+          <button class="subjectItem flex items-center rounded-xl md:rounded-3xl" aria-label="Seleccionar JavaScript quiz">
             <div class="flex justify-center items-center size-10 md:size-14 bg-blue-50 rounded-lg">
-              <img class="size-[28.57px] md:size-10" src="assets/images/icon-js.svg" alt="" />
+              <img class="size-[28.57px] md:size-10" src="assets/images/icon-js.svg" alt="Ícono JavaScript" />
             </div>
             <span class="text-preset-4">JavaScript</span>
-          </div>
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
+          </button>
+          <button class="subjectItem flex items-center rounded-xl md:rounded-3xl" aria-label="Seleccionar Accessibility quiz">
             <div class="flex justify-center items-center size-10 md:size-14 bg-purple-100 rounded-lg">
-              <img class="size-[28.57px] md:size-10" src="assets/images/icon-accessibility.svg" alt="" />
+              <img class="size-[28.57px] md:size-10" src="assets/images/icon-accessibility.svg" alt="Ícono Accessibility" />
             </div>
             <span class="text-preset-4">Accessibility</span>
-          </div>
-        </div>
-      </div>
+          </button>
+        </nav>
+      </section>
 
       <!-- Main Container // question -->
-      <div class="mainQuestionContainer" hidden>
+      <section class="mainQuestionContainer" id="questionSection" aria-labelledby="questionHeading" >
         <!-- Question Container -->
         <div class="questionContainer flex flex-col gap-6 md:gap-8">
           <!-- Question Text Container -->
           <div class="questionTextContainer flex flex-col gap-4 md:gap-6">
-            <span class="questionNumber text-preset-5-italic"> Question <span id=""></span>of 10</span>
-            <p class="questionText text-preset-3" id=""></p>
+            <span class="questionNumber text-preset-5-italic" aria-live="polite"> 
+              Question <span id="currentQuestion">1</span> of 10
+            </span>
+            <h2 id="questionHeading" class="questionText text-preset-3"></h2>
           </div>
 
           <!-- Progress Bar Container -->
-          <label class="progressBarContainer" for=""></label>
-          <progress class="progressBar" id="" max="100" value="50">0%</progress>
+          <div class="progressBarContainer">
+            <label for="quizProgress" class="sr-only">Progreso del quiz</label>
+            <progress id="quizProgress" class="progressBar" max="100" value="10" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+              10% completado
+            </progress>
+          </div>
         </div>
 
-        <!-- Subjects Container -->
-        <div class="subjectsContainer gap-4 md:gap-6 xl:gap-4">
-          <!-- Subject Item -->
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
-            <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg">
-              <span class="text-gray-500 text-preset-4" id="a" alt="">A</span>
-            </div>
-            <span class="text-preset-4"></span>
-          </div>
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
-            <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg">
-              <span class="text-gray-500 text-preset-4" id="a" alt="">B</span>
-            </div>
-            <span class="text-preset-4"></span>
-          </div>
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
-            <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg">
-              <span class="text-gray-500 text-preset-4" id="c" alt="">C</span>
-            </div>
-            <span class="text-preset-4"></span>
-          </div>
-          <div class="subjectItem flex items-center rounded-xl md:rounded-3xl">
-            <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg">
-              <span class="text-gray-500 text-preset-4" id="d" alt="">D</span>
-            </div>
-            <span class="text-preset-4"></span>
-          </div>
-          <button class="bg-purple-600 flex justify-center items-center p-4 h-14 rounded-xl md:rounded-3xl">
+        <!-- Answers Container -->
+        <form class="subjectsContainer gap-4 md:gap-6 xl:gap-4" id="quizForm">
+          <!-- Answer Options -->
+          <fieldset class="space-y-4 md:space-y-6 xl:space-y-4">
+            <legend class="sr-only">Opciones de respuesta</legend>
+            
+            <label class="subjectItem flex items-center rounded-xl md:rounded-3xl cursor-pointer" for="optionA">
+              <input class="sr-only" type="radio" id="optionA" name="quizAnswer" value="A" />
+              <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg" aria-hidden="true">
+                <span class="text-gray-500 text-preset-4">A</span>
+              </div>
+              <span class="text-preset-4 answer-text"></span>
+            </label>
+            
+            <label class="subjectItem flex items-center rounded-xl md:rounded-3xl cursor-pointer" for="optionB">
+              <input class="sr-only" type="radio" id="optionB" name="quizAnswer" value="B" />
+              <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg" aria-hidden="true">
+                <span class="text-gray-500 text-preset-4">B</span>
+              </div>
+              <span class="text-preset-4 answer-text"></span>
+            </label>
+            
+            <label class="subjectItem flex items-center rounded-xl md:rounded-3xl cursor-pointer" for="optionC">
+              <input class="sr-only" type="radio" id="optionC" name="quizAnswer" value="C" />
+              <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg" aria-hidden="true">
+                <span class="text-gray-500 text-preset-4">C</span>
+              </div>
+              <span class="text-preset-4 answer-text"></span>
+            </label>
+            
+            <label class="subjectItem flex items-center rounded-xl md:rounded-3xl cursor-pointer" for="optionD">
+              <input class="sr-only" type="radio" id="optionD" name="quizAnswer" value="D" />
+              <div class="flex justify-center items-center size-10 md:size-14 bg-gray-50 rounded-lg" aria-hidden="true">
+                <span class="text-gray-500 text-preset-4">D</span>
+              </div>
+              <span class="text-preset-4 answer-text"></span>
+            </label>
+          </fieldset>
+          
+          <button type="submit" class="bg-purple-600 flex justify-center items-center p-4 h-14 rounded-xl md:rounded-3xl" disabled>
             <span class="text-preset-4">Submit answer</span>
           </button>
-        </div>
-      </div>
+        </form>
+      </section>
 
       <!-- Main Container // Quiz completed score -->
-      <div class="flex flex-col gap-10 px-6 pt-8 pb-0">
+      <section class="flex flex-col gap-10 px-6 pt-8 pb-0" id="resultsSection" aria-labelledby="resultsHeading" >
         <div class="flex flex-col">
-          <span class="text-preset-2-light mb-2">Quiz completed</span>
-          <span class="text-preset-2-medium"> You scored...</span>
+          <span class="text-preset-2-light mb-2" id="resultsHeading">Quiz completed</span>
+          <h2 class="text-preset-2-medium">You scored...</h2>
         </div>
 
         <div class="flex flex-col gap-4">
           <div class="flex flex-col justify-center items-center gap-4 p-8 bg-blue-850 rounded-xl">
-            <div class="subjectList justify-center">
+            <div class="subjectList justify-center" aria-hidden="true">
               <img class="" src="" alt="" />
               <span class="min-w-27.75 min-h-4.5"></span>
             </div>
 
             <div class="flex flex-col justify-center items-center gap-4 w-[263px] h-[122px]">
-              <span class="text-preset-1">8</span>
-
+              <span class="text-preset-1" id="finalScore" aria-live="polite">8</span>
               <span class="text-preset-6">out of 10</span>
             </div>
           </div>
 
-          <button class="bg-purple-600 flex justify-center items-center p-4 h-14 rounded-xl md:rounded-3xl">
+          <button class="bg-purple-600 flex justify-center items-center p-4 h-14 rounded-xl md:rounded-3xl" id="playAgain">
             <span class="text-preset-4">Play again</span>
           </button>
         </div>
-      </div>
+      </section>
     </main>
   </body>
 </html>
